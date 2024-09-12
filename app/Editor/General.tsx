@@ -11,7 +11,7 @@ interface Props {
     setPosition: (Position: string) => void,
     setEmail: (Email: string) => void,
     setPhoneNumber: (PhoneNumber: string) => void,
-    handleSizeChange: (handleSizeChange: string) => void,
+    handleSizeChange: (e: React.ChangeEvent<HTMLInputElement>) => void,
 }
 const General = ({ setName, setJobType, setPhoneNumber, setEmail, setPosition, handleSizeChange }: Props) => {
     const [buttonText, setButtonText] = useState('Visit Your Website'); // Default button text

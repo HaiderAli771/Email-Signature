@@ -3,9 +3,8 @@ import Image from 'next/image';
 import Preview from './preview';
 
 interface Props {
-    image: any;
-    handleRemoveImage: () => void;
-    handleImageUpload: (e: React.ChangeEvent<HTMLInputElement>) => void;
+    selectedTemplate: string;
+    handleTemplateClick: (template: string) => void;
     name: string;
     jobType: string;
     phoneNumber: string;
@@ -16,71 +15,85 @@ interface Props {
     setPosition: React.Dispatch<React.SetStateAction<string>>;
     setEmail: React.Dispatch<React.SetStateAction<string>>;
     setPhoneNumber: React.Dispatch<React.SetStateAction<string>>;
+    handleFileChange: (e: React.ChangeEvent<HTMLInputElement>) => void,
+    profileImage: string | ArrayBuffer | null,
+    handleRemoveImage: () => void,
 }
 
-const Images = ({ image, handleImageUpload, handleRemoveImage, setName, setEmail, setJobType, setPhoneNumber, setPosition, name, jobType, phoneNumber, email, position }: Props) => {
-    // State for selected template
-    const [selectedTemplate, setSelectedTemplate] = useState<string>('Template1'); // Default template
-    const [website, setWebsite] = useState('Visit My Website');
-
+const Images = ({
+    selectedTemplate,
+    handleTemplateClick,
+    setName,
+    setEmail,
+    setJobType,
+    setPhoneNumber,
+    setPosition,
+    name,
+    jobType,
+    phoneNumber,
+    email,
+    position,
+    handleFileChange,
+    handleRemoveImage,
+    profileImage
+}: Props) => {
     // State for image size
-    const [size, setSize] = useState<number>(60); // Default size for the image
+    const [imageSize, setImageSize] = useState<number>(60); // Default size for the image
 
-    // Function to handle template selection
-    const handleTemplateClick = (template: string) => {
-        setSelectedTemplate(template); // Update the selected template
-    };
+    // State to store the selected image
+    // No default profile image
 
-    // Function to handle the slider change
-    const handleSizeChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        setSize(parseInt(e.target.value)); // Update size state based on slider value
-    };
+    // Function to handle image upload
 
-    const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        setImageSize(parseInt(e.target.value)); // Update imageSize as the slider moves
-    };
-    const [imageSize, setImageSize] = useState<number>(60); // State for image size
 
+    // Function to remove the selected image
+
+
+    // Function to handle the image size change
     const handleImageSizeChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         setImageSize(Number(e.target.value)); // Update the image size from the slider
     };
 
     return (
         <div>
-            <div className='flex grid-rows-2 gap-16'>
+            <div className="flex grid-rows-2 gap-16">
                 <div className="w-[400px] bg-white shadow-lg rounded-lg p-6">
-                    <div className='flex flex-col gap-7 items-center'>
+                    <div className="flex flex-col gap-7 items-center">
                         <h1 className="text-lg font-semibold text-gray-700">Image</h1>
-                        {image && (
-                            <div className="">
+
+                        {/* Conditionally render the image if profileImage exists */}
+                        {profileImage ? (
+                            <>
                                 <Image
-                                    src={image}
-                                    alt="John Doe"
-                                    width={size}  // Set width based on state
-                                    height={size} // Set height based on state
+                                    src={profileImage as string}
+                                    alt="Profile"
+                                    width={imageSize}
+                                    height={imageSize}
                                     className="rounded-full"
                                 />
-                            </div>
-                        )}
 
-                        {image ? (
-                            <button
-                                onClick={handleRemoveImage}
-                                className="px-4 py-2 bg-red-600 text-white rounded hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-600"
-                            >
-                                Remove Image
-                            </button>
+                                <button
+                                    onClick={handleRemoveImage}
+                                    className="px-4 py-2 bg-red-500 text-white rounded-md hover:bg-red-600 focus:outline-none mt-4"
+                                >
+                                    Remove Profile Image
+                                </button>
+                            </>
                         ) : (
-                            <input
-                                type="file"
-                                accept="image/*"
-                                onChange={handleImageUpload}
-                                className="block w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 cursor-pointer focus:outline-none focus:border-transparent"
-                            />
+                            // Display file input if no image is selected
+                            <>
+                                <input
+                                    type="file"
+                                    accept="image/*"
+                                    onChange={handleFileChange}
+                                    className="block w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 cursor-pointer focus:outline-none focus:border-transparent"
+                                />
+                            </>
                         )}
                     </div>
-                    <div className='flex flex-col pt-5'>
-                        <h1>Image Width</h1>
+
+                    <div className="flex flex-col pt-5">
+                        <h1>Image Size</h1>
                         <input
                             id="size-slider"
                             type="range"
@@ -90,16 +103,24 @@ const Images = ({ image, handleImageUpload, handleRemoveImage, setName, setEmail
                             onChange={handleImageSizeChange} // Update image size when slider changes
                             className="mt-[22px] mb-[22px]"
                         />
-                        <input
-                            className="mt-1 p-2 w-full border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500"
-                            id="link"
-                            type="text"
-                            placeholder="Link"
-                        />
                     </div>
                 </div>
+
+                {/* Pass the selected image to the Preview component */}
                 <div>
-                    <Preview imageSize={imageSize} handleImageSizeChange={handleImageSizeChange} name={name} jobType={jobType} phoneNumber={phoneNumber} email={email} position={position} selectedTemplate={selectedTemplate} handleTemplateClick={handleTemplateClick} />
+                    <Preview
+                        imageSize={imageSize} // Pass the image size to Preview
+                        name={name}
+                        jobType={jobType}
+                        phoneNumber={phoneNumber}
+                        email={email}
+                        position={position}
+                        selectedTemplate={selectedTemplate}
+                        handleTemplateClick={handleTemplateClick}
+                        profileImage={profileImage} // Pass the selected image
+                        handleFileChange={handleFileChange}
+                        handleRemoveImage={handleRemoveImage}
+                    />
                 </div>
             </div>
         </div>

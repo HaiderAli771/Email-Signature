@@ -9,26 +9,37 @@ import {
     faReddit,
 } from '@fortawesome/free-brands-svg-icons';
 interface Props {
-    name: string,
-    title: string,
-    company: string,
-    phone: string,
-    email: string,
+    name: string;
+    title: string;
+    company: string;
+    phone: string;
+    email: string;
+    imageSize: number;
+    changeImg: string | null;
 }
 import Image from 'next/image';
-export default function template2({ name, title, company, phone, email }: Props) {
+export default function template2({ name,
+    title,
+    company,
+    phone,
+    email,
+    imageSize,
+    changeImg, }: Props) {
 
     return (
         <div className="h-[200px] rounded-xl overflow-hidden shadow-lg p-6 bg-white flex items-center space-x-4">
-            <div className="flex-shrink-0">
-                <Image
-                    src='/images.png'
-                    className="h-16 w-16 rounded-full"
-                    alt="Profile"
-                    width={60}
-                    height={20}
-                />
-            </div>
+            {changeImg && (
+                <div className="flex-shrink-0">
+                    <Image
+                        src={changeImg}
+                        className="rounded-full"
+                        alt="Profile"
+                        width={imageSize}
+                        height={imageSize}
+                    />
+                </div>
+            )}
+
             <div className="flex-grow">
                 <h1 className="text-gray-900 font-semibold text-lg mb-1">{name}</h1>
                 <h3 className="text-gray-600 text-sm mb-2">{title}</h3>

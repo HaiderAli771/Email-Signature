@@ -16,7 +16,8 @@ interface Props {
     company: string;
     phone: string;
     email: string;
-    imageSize: number; // imageSize should be a number
+    imageSize: number;
+    changeImg: string | null; // Image can be null now
 }
 
 export default function SignatureTemplate1({
@@ -26,19 +27,24 @@ export default function SignatureTemplate1({
     phone,
     email,
     imageSize,
+    changeImg,
 }: Props) {
-    debugger;
+    // const removeLink = useState(null)
     return (
         <div className="h-[200px] rounded-xl overflow-hidden shadow-lg p-6 bg-white flex items-center space-x-4">
-            <div className="flex-shrink-0">
-                <Image
-                    src="/images.png"
-                    className="rounded-full"
-                    alt="Profile"
-                    width={imageSize}
-                    height={imageSize}
-                />
-            </div>
+            {/* Conditionally render the profile image if it's provided */}
+            {changeImg && (
+                <div className="flex-shrink-0">
+                    <Image
+                        src={changeImg}
+                        className="rounded-full"
+                        alt="Profile"
+                        width={imageSize}
+                        height={imageSize}
+                    />
+                </div>
+            )}
+
             <div className="flex-grow">
                 <h1 className="text-gray-900 font-semibold text-lg mb-1">{name}</h1>
                 <h2 className="text-gray-600 text-sm mb-2">{title}</h2>
@@ -72,8 +78,6 @@ export default function SignatureTemplate1({
                     <FontAwesomeIcon icon={faReddit} />
                 </a>
             </div>
-
-            {/* Image Size Input (Slider) */}
         </div>
     );
 }
