@@ -1,10 +1,4 @@
 import React, { useState } from 'react'
-import Image from 'next/image'
-import SignatureTemplate1 from './templates/template1';
-import SignatureTemplate2 from './templates/template2';
-import SignatureTemplate3 from './templates/template3';
-import SignatureTemplate4 from './templates/template4'
-import Preview from './preview'
 interface Props {
     setName: (Name: string) => void,
     setJobType: (JobType: string) => void,
@@ -25,35 +19,19 @@ const General = ({ setName, setJobType, setPhoneNumber, setEmail, setPosition, h
     ];
     const [links, setLinks] = useState(socialMediaPlatforms);
 
-    const [socialSize, setSocialSize] = useState(30); // Initial size of 64x64
-    const handleSocialSizeChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        setSocialSize(Number(e.target.value));
-    };
+    // const [socialSize, setSocialSize] = useState(30); // Initial size of 64x64
+    // const handleSocialSizeChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    //     setSocialSize(Number(e.target.value));
+    // };
     const [query, setQuery] = useState('');
-    const [textColor, setTextColor] = useState('#000000'); // Initial text color
-    const [bgColor, setBgColor] = useState('#ffffff'); // Initial background color
+    const [textColor, setTextColor] = useState('#000000');
+    const [bgColor, setBgColor] = useState('#ffffff');
 
     const handleSearch = () => {
         if (query.trim()) {
             window.open(`https://${query}`, '_blank');
         }
     };
-
-    const fonts = [
-
-        'Arial',
-        'Courier New',
-        'Georgia',
-        'Times New Roman',
-        'Verdana',
-        'Trebuchet MS',
-        'Lucida Console',
-        'Tahoma',
-        'Impact',
-        'Palatino Linotype',
-        'Gill Sans',
-        'Comic Sans MS',
-    ];
     const [selectedFont, setSelectedFont] = useState('Arial');
 
     const [selectedTemplate, setSelectedTemplate] = useState(null);
@@ -86,7 +64,7 @@ const General = ({ setName, setJobType, setPhoneNumber, setEmail, setPosition, h
             </label>
             <input
                 onChange={e => setName(e.target.value)}
-                className="mt-1 p-2 w-full border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500"
+                className="mt-1 p-2 xl:w-full md:w-96 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500"
                 id="name"
                 type="text"
                 placeholder="Enter Your Name"
@@ -97,7 +75,7 @@ const General = ({ setName, setJobType, setPhoneNumber, setEmail, setPosition, h
                 </label>
                 <input
                     onChange={e => setJobType(e.target.value)}
-                    className="mt-1 p-2 w-full border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500"
+                    className="mt-1 p-2 xl:w-full md:w-96 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500"
                     id="company"
                     type="text"
                     placeholder="Enter Your Company Name"
@@ -109,7 +87,7 @@ const General = ({ setName, setJobType, setPhoneNumber, setEmail, setPosition, h
                 </label>
                 <input
                     onChange={e => setPosition(e.target.value)}
-                    className="mt-1 p-2 w-full border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500"
+                    className="mt-1 p-2 xl:w-full md:w-96 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500"
                     id="position"
                     type="text"
                     placeholder="Enter Your Position"
@@ -117,15 +95,15 @@ const General = ({ setName, setJobType, setPhoneNumber, setEmail, setPosition, h
 
             </div>
 
-            <div className="mb-6">
-                <h2 className="text-lg font-semibold text-gray-700">Contacts</h2>
+            <div className="mb-6 mt-6">
+                <h2 className="text-xl font-semibold text-gray-700">Contacts</h2>
                 <div className="mt-4">
                     <label className="block text-sm font-medium text-gray-700" htmlFor="emailAddress">
                         Email address
                     </label>
                     <input
                         onChange={e => setEmail(e.target.value)}
-                        className="mt-1 p-2 w-full border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500"
+                        className="mt-1 p-2 xl:w-full md:w-96 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500"
                         id="emailAddress"
                         type="text"
                         placeholder="milacoll@example.com"
@@ -138,7 +116,7 @@ const General = ({ setName, setJobType, setPhoneNumber, setEmail, setPosition, h
                 </label>
                 <input
                     onChange={e => setPhoneNumber(e.target.value)}
-                    className="mt-1 p-2 w-full border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500"
+                    className="mt-1 p-2 xl:w-full md:w-96 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500"
                     id="phoneNumber"
                     type="number"
                     placeholder="Your Number"

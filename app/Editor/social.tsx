@@ -1,20 +1,7 @@
-import React, { useState, useEffect } from 'react';
-import Image from 'next/image';
-import Preview from './preview';
-
-interface Platform {
-    name: string;
-    icon: string;
-    url: string;
-}
-
-const initialSocialMediaPlatforms: Platform[] = [
-    { name: 'Instagram', url: 'https://mysignature.io/', icon: '/instagram-brands-solid.svg' },
-    { name: 'Facebook', url: '', icon: '/facebook-brands-solid.svg' },
-    { name: 'Twitter', url: '', icon: '/square-x-twitter-brands-solid.svg' },
-    { name: 'Linkedin', url: '', icon: '/linkedin-brands-solid.svg' },
-];
-
+import React, { Dispatch, SetStateAction, useState } from 'react';
+import { ILinks } from '../types';
+import { faInstagram, faFacebook, faTiktok, faLinkedin, faPinterest, faReddit } from '@fortawesome/free-brands-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 interface Props {
     name: string;
     jobType: string;
@@ -28,64 +15,106 @@ interface Props {
     profileImage: string | ArrayBuffer | null;
     handleRemoveImage: () => void;
     handleFileChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+    imageSize: number;
+    handleImageSizeChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+    links: ILinks,
+    setLinks: Dispatch<SetStateAction<ILinks>>
 }
 
-const Social = ({ name, jobType, position, email, phoneNumber, website, socialSize, selectedTemplate, profileImage, handleFileChange, handleRemoveImage, handleTemplateClick }: Props) => {
-    const [socialMediaLinks, setSocialMediaLinks] = useState<Platform[]>(initialSocialMediaPlatforms);
-    const [imageSize, setImageSize] = useState<number>(100);
+const Social = ({
+    links,
+    setLinks,
+}: Props) => {
 
-    // Handle input change for social media URLs
-    const handleInputChange = (index: number, value: string) => {
-        const updatedLinks = [...socialMediaLinks];
-        updatedLinks[index].url = value; // Update the specific platform URL
-        setSocialMediaLinks(updatedLinks); // Update state with the new URLs
-    };
 
-    // Handle removing a social media link
-    const handleRemoveLink = (index: number) => {
-        const updatedLinks = [...socialMediaLinks];
-        updatedLinks.splice(index, 1); // Remove the platform
-        setSocialMediaLinks(updatedLinks);
-    };
 
     return (
-        <div>
-            <div className="max-w-md p-4 bg-white shadow-md rounded-lg">
-                <h2 className="text-xl font-bold mb-4">Added Social Icons</h2>
-                {socialMediaLinks.map((platform, index) => (
-                    <div key={index} className="flex items-center gap-[17px] mb-5 mt-8">
-                        <Image src={platform.icon} alt={platform.name} width={30} height={30} />
-                        <span className="flex-1">{platform.name}</span>
-                        <input
-                            value={platform.url}
-                            onChange={(e) => handleInputChange(index, e.target.value)}
-                            type="text"
-                            className="flex-1 p-2 border border-gray-300 rounded"
-                        />
-                        <button
-                            onClick={() => handleRemoveLink(index)}
-                            className="ml-2 p-1 text-red-500 hover:text-red-700"
-                        >
-                            X
-                        </button>
-                    </div>
-                ))}
-            </div>
+        <div className="max-w-md p-4 bg-white shadow-md rounded-lg">
+            <h2 className="text-xl font-bold mb-4">Added Social Icons</h2>
+            <h1 className="text-base  mb-4">ADD THE SOCIAL MEDIA PROFILE NAME TO ADD THE SOCIAL ICON ON TEMPLATE.</h1>
+            <div className="space-y-4 mt-4">
 
-            {/* User Profile Section */}
-            <Preview
-                imageSize={imageSize}
-                name={name}
-                jobType={jobType}
-                phoneNumber={phoneNumber}
-                email={email}
-                position={position}
-                selectedTemplate={selectedTemplate} // Pass the selected template from localStorage
-                handleTemplateClick={handleTemplateClick}
-                profileImage={profileImage}
-                handleFileChange={handleFileChange}
-                handleRemoveImage={handleRemoveImage}
-            />
+                <div className="flex items-center mr-10 space-x-2">
+                    <FontAwesomeIcon icon={faInstagram} />
+                    <input
+                        type="text"
+                        value={links.instagram}
+                        onChange={(e) => setLinks({ ...links, instagram: e.target.value })}
+                        placeholder="Add Instagram link"
+                        className="w-full px-4 pl-2 pr-10 py-2 text-gray-700 bg-white border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent shadow-sm"
+                    />
+
+
+                </div>
+
+
+                <div className="flex items-center mr-10 space-x-2">
+                    <FontAwesomeIcon icon={faFacebook} />
+                    <input
+                        type="text"
+                        value={links.facebook}
+                        onChange={(e) => setLinks({ ...links, facebook: e.target.value })}
+                        placeholder="Add Facebook link"
+                        className="w-full px-4 pl-2 pr-10 py-2 text-gray-700 bg-white border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent shadow-sm"
+                    />
+
+                </div>
+
+
+
+                <div className="flex items-center mr-10 space-x-2">
+                    <FontAwesomeIcon icon={faTiktok} />
+                    <input
+                        type="text"
+                        value={links.tiktok}
+                        onChange={(e) => setLinks({ ...links, tiktok: e.target.value })}
+                        placeholder="Add TikTok link"
+                        className="w-full px-4 pl-2 pr-10 py-2 text-gray-700 bg-white border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent shadow-sm"
+                    />
+                </div>
+
+
+
+                <div className="flex items-center mr-10 space-x-2">
+                    <FontAwesomeIcon icon={faLinkedin} />
+                    <input
+                        type="text"
+                        value={links.linkedin}
+                        onChange={(e) => setLinks({ ...links, linkedin: e.target.value })}
+                        placeholder="Add LinkedIn link"
+                        className="w-full px-4 pl-2 pr-10 py-2 text-gray-700 bg-white border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent shadow-sm"
+                    />
+
+                </div>
+
+
+
+                <div className="flex items-center mr-10 space-x-2">
+                    <FontAwesomeIcon icon={faPinterest} />
+                    <input
+                        type="text"
+                        value={links.pinterest}
+                        onChange={(e) => setLinks({ ...links, pinterest: e.target.value })}
+                        placeholder="Add Pinterest link"
+                        className="w-full px-4 pl-2 pr-10 py-2 text-gray-700 bg-white border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent shadow-sm"
+                    />
+
+                </div>
+
+
+                <div className="flex items-center mr-10 space-x-2">
+                    <FontAwesomeIcon icon={faReddit} />
+                    <input
+                        type="text"
+                        value={links.reddit}
+                        onChange={(e) => setLinks({ ...links, "reddit": e.target.value })}
+                        placeholder="Add Reddit link"
+                        className="w-full px-4 pl-2 pr-10 py-2 text-gray-700 bg-white border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent shadow-sm"
+                    />
+
+                </div>
+
+            </div>
         </div>
     );
 };
