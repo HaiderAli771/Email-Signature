@@ -1,22 +1,8 @@
 import React, { Dispatch, SetStateAction, useState } from 'react';
-import { ILinks } from '../types';
+import { ILinks } from './types';
 import { faInstagram, faFacebook, faTiktok, faLinkedin, faPinterest, faReddit } from '@fortawesome/free-brands-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 interface Props {
-    name: string;
-    jobType: string;
-    position: string;
-    email: string;
-    phoneNumber: string;
-    website: string;
-    socialSize: number;
-    selectedTemplate: string;
-    handleTemplateClick: (template: string) => void;
-    profileImage: string | ArrayBuffer | null;
-    handleRemoveImage: () => void;
-    handleFileChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
-    imageSize: number;
-    handleImageSizeChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
     links: ILinks,
     setLinks: Dispatch<SetStateAction<ILinks>>
 }

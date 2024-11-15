@@ -1,5 +1,8 @@
 import React, { useRef } from 'react';
+import Image from 'next/image';
+import Link from 'next/link';
 import { ILinks } from '@/app/Editor/types';
+
 
 interface Props {
     name: string;
@@ -83,9 +86,8 @@ interface Props {
     disclaimerTextColor?: string,
     disclaimerTextPadding?: number,
 }
-import Image from 'next/image';
-import Link from 'next/link';
-export default function template2({
+
+export default function SignatureTemplate7({
     name,
     title,
     company,
@@ -93,6 +95,7 @@ export default function template2({
     email,
     imageSize,
     changeImg,
+    bannerImg,
     links,
     displayText,
     nameText,
@@ -166,221 +169,218 @@ export default function template2({
     disclaimerTextColor,
     disclaimerTextPadding,
 }: Props) {
-
-
     return (
-        <div ref={signatureRef} style={{ maxWidth: '545px', }} className='md:flex md:flex-col md:justify-center md:items-center'>
-            <div
-                className="xl:position-sticky"
-                style={{
-                    // display: 'flex',
-                    backgroundColor: bgColor,
-                    color: textColor,
-                    fontFamily: selectedFont,
-                    fontSize: `${fontSize}px`,
-                    overflowX: 'auto',
-                    overflowY: 'hidden',
-                    // boxShadow: '1px 1px 1px',
-                    padding: '24px',
-                    // position: 'sticky',
-                }}
-            >
-                <p style={{ fontSize: `${signatureSize}px`, fontWeight: '600', margin: '0', color: `${signatureColor}` }}>{signature}</p>
-                <div style={{ display: 'inline-table', alignSelf: 'center', marginTop: 'auto', marginBottom: 'auto', paddingRight: '20px' }}>
-                    {changeImg && (
-                        <Image
-                            src={changeImg}
-                            alt="Profile"
-                            width={imageSize}
-                            height={imageSize}
-
-                        />
-                    )}
-
-                </div>
-
-                <div style={{ fontFamily: selectedFont, fontSize: `${fontSize}px`, marginTop: 'auto', marginBottom: 'auto', marginRight: '50px', }}>
-
-                    <p className=" font-semibold mb-2 mt-0" style={{ fontWeight: '600', color: nameColor, marginBottom: '8px', marginTop: '0px' }} >{name}</p>
-                    <p className="" style={{ marginBottom: '5px', marginTop: '0px' }} >{title}</p>
-                    <p className="" style={{ marginBottom: '5px', marginTop: '0px' }} >{company}</p>
-
-                    <p className=" " style={{ marginBottom: '5px', marginTop: '0px' }} >
-                        <span className="font-bold" >📞</span> {phone}
-                    </p>
-                    <p className=" " style={{ marginBottom: '5px', marginTop: '0px' }}>
-                        <span className="font-bold">✉️</span> {email}
-                    </p>
-                    {displayText && (
-                        <Link target='_blank' href={(`https://www.${encodeURIComponent(displayText)}.com`)}
-                            style={{ display: 'flex', alignItems: 'center', border: 'none', cursor: 'pointer', textDecoration: 'none', color: textColor, }}
-                        >
-
-                            <h2 className="text-sm" style={{ fontSize: `${fontSize}px`, backgroundColor: bgColor, }}>
-                                🌐 {nameText}
-                            </h2>
-                        </Link>
-                    )}
-                    <div className="" style={{ border: '1px solid black', marginTop: '16px', width: '100%' }}></div>
-
-                    <div className="" style={{ display: 'flex', }} >
-                        {links.instagram && (
-                            <div style={{ textAlign: 'center', paddingRight: '10px' }}>
-                                <Link href={`https://www.instagram.com/${links.instagram}`} target="_blank">
-                                    <div
-                                        style={{
-                                            backgroundColor: socialColor,
-                                            width: `${socialSize}px`,
-                                            height: `${socialSize}px`,
-                                            borderRadius: '50%',
-                                            display: "block",
-                                            padding: '3px',
-                                            margin: '10px 0 0 0',
-                                        }}
-                                    >
-                                        <Image
-                                            src='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACgAAAAoCAYAAACM/rhtAAAABmJLR0QA/wD/AP+gvaeTAAADMUlEQVRYhe2YPU9UQRSG3zGii9gKqChI4kdE/4IfMWApmoD+Az+ItGpsRTSGCKUdKongWhBajKKJsmpnIyYWJn7ERCsjLIrmsbhn5brusjOX3bXhJJubzJzznmfvzJ05M9KKLc+cjxOwXlKHpJ2SGiWlEuabl/RJ0oykSefct4Q6f8BagREgS/ktC9wGWpLC9QLfgZ/AKNAFNANJ356AFNACdANjpj0P9IQKDdq/fArsTgrkkacNmLZcA75BvRYwBqytFFwsXwpIW84zpZxbbVifVAMuljcFZGy4W5ZyHLF5UclhXQXsyH8BwB7LfbNY4Hr7skYrBWd57thwvgTW5PXdBeaAukKBxyywq8KAX2NLzfa8vuPW3plrWx3r32nPF4EJ6yV1StonaYs1v5P0SNK4c+5zXki/pAuSJiS9yet7nsfyV6Iho/da52xi99uQAMwCr+wXb7scqAkwVKjzBoCnUAPwzMQmgXagJtZfY233zScDNHhqA9xIDAjUGtwCcNLD/7T5ZnzeZDkA+03kVCnfWEyPxfRVFBCot/k16QsXi31gc3JDCOCqwDydkmolXQ0FlHRF0jpJR0KCQgH3S5pVtISE2pSkOdPwtlDAJknvnXMLgXFyzv2Q9N40vC0UEHlW4UXMmYa3hQJ+kLQ5vub5GtG+22Qa3hYKOCWpTtKBwDhJOqjoA5sKCQoFHFc00c8FxknSeYudCAkKArSNf0jSIUpVvzEDzip669cLFA/eIr47Sa76XcDjsAOcNd/pqmx15ttgkNgO0UGs+ATWAIeBh+YzTVSW+WgXBUxSbvXZ9oVtgTP2i5dblwI1IVZuxQvWT/ZslPS2lJhzbl7SRWBQ/xaszyU9VlSwfvGBM9tkz4+F6I8afXeAYFkNOGEM/+7XLB6axv4DW44hTbFDkzncIjr6tVWZTcBe4BcwvJTTNqLDs9eSUEa4FFGVngW2lnLOVb/pakAa3D3L6VelAwMWkAH2VBBuL4uHr2uhwWdsuH8SnfiP2xRY7vVbq2mlbc5l8Th8FRNstg8nt/CW0+aAYUrMOd8r4DpJ7ZJ2Sdqo5V0Bf5T0WtEV8GxCnRXztt+Ja10Yo/XDCgAAAABJRU5ErkJggg=='
-                                            alt="instagram"
-                                            width={socialSize}
-                                            height={socialSize}
-                                            style={{ display: 'block', width: `100%`, height: `100%`, margin: 'auto' }}
-                                        />
-                                    </div>
-                                </Link>
+        <>
+            <div ref={signatureRef} className='xl:sticky' style={{ maxWidth: '520px', fontFamily: selectedFont, backgroundColor: bgColor, padding: '20px', color: textColor, borderRadius: '10px', overflowX: 'auto', }}>
+                <div style={{ display: 'flex', width: 'fit-content', }}>
+                    <div style={{ verticalAlign: 'middle', marginTop: 'auto', marginBottom: 'auto' }}>
+                        {changeImg && (
+                            <div style={{ margin: 'auto', textAlign: 'center', marginRight: '20px' }}>
+                                <Image
+                                    src={changeImg}
+                                    alt="Profile"
+                                    width={imageSize}
+                                    height={imageSize}
+                                    style={{ margin: 'auto' }}
+                                />
                             </div>
                         )}
 
-                        {links.facebook && (
-                            <div style={{ textAlign: 'center', paddingRight: '10px' }}>
-                                <Link href={`https://www.facebook.com/${links.facebook}`} target="_blank">
-                                    <div
-                                        style={{
-                                            backgroundColor: socialColor,
-                                            width: `${socialSize}px`,
-                                            height: `${socialSize}px`,
-                                            borderRadius: '50%',
-                                            display: "block",
-                                            padding: '3px',
-                                            margin: '10px 0 0 0',
-                                        }}
-                                    >
-                                        <Image
-                                            src='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAMAAACdt4HsAAAAJFBMVEVHcEz///////////////////////////////////////////8Uel1nAAAAC3RSTlMACiE6RWJ3iKPL4/2e55kAAAChSURBVHja7dbLCgMhDIXhGHWMOe//vi1ScApdjB56g3xLF78QXURC+Be5Hg9F1qk5JpVFyfCkyBrtoALJwQU6uEAFF0hOBgrIgLGBjmnrIzlOurW7IitwYrIBkycyYPLZQLUBU2/DxSkqpq13zO8MuJABYwOVDSgZcCEDxgaqXKHMCIbcBpzYOMmy5MXVEYhABL4ScExJNujRHo4c+374eTfT3iB+V7Ic5AAAAABJRU5ErkJggg=='
-                                            alt="Facebook"
-                                            width={socialSize}
-                                            height={socialSize}
-                                            style={{ display: 'block', width: `100%`, height: `100%`, margin: 'auto' }}
-                                        />
-                                    </div>
-                                </Link>
-                            </div>
-                        )}
-
-                        {links.tiktok && (
-                            <div style={{ textAlign: 'center', paddingRight: '10px' }}>
-                                <Link href={`https://www.tiktok.com/@${links.tiktok}`} target="_blank">
-                                    <div
-                                        style={{
-                                            backgroundColor: socialColor,
-                                            width: `${socialSize}px`,
-                                            height: `${socialSize}px`,
-                                            borderRadius: '50%',
-                                            display: "block",
-                                            padding: '3px',
-                                            margin: '10px 0 0 0'
-                                        }}
-                                    >
-                                        <Image
-                                            src='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAMAAAAp4XiDAAAAJ1BMVEVHcEz//////////v///v///v7//v7//v7//v///////v///////v6hEWneAAAAC3RSTlMABBhBZIGWp83n8pXIixAAAAEDSURBVHja7dbBbsMgDIBhbBOwwe//vKPdLLZCin3bob96CvpEEyQn6dNdfYRxQlGi32GcUJyUOBEMEy1xojlOGgWIleNEK4aJtkIYIJabcJxAllsCVFiuhTwWKrfxW0CWPtqQu5D7IxVhlstDSJ7gJw9BMeAlwCbcJD/FPGY4EpApKrqeGM1NrpQ8BIota00+ktiWG3qJzGHiJboZWeDcBec1fE/YVmFeo/ekbHYpRmRLaL0XbEZ4JwBkeWL1NJLz67lc/TT4gf+cPtYpBNI+bPY3AKm0Ic5zktTqoykY0tmMDJzeLdR0SQ4jH/lVMKZTWX4DyXACNi91JFzIwIH8l0+bLw6jIBvwyzNCAAAAAElFTkSuQmCC'
-                                            alt="TikTok"
-                                            width={socialSize}
-                                            height={socialSize}
-                                            style={{ display: 'block', width: `100%`, height: `100%`, margin: 'auto' }}
-                                        />
-                                    </div>
-                                </Link>
-                            </div>
-                        )}
-
-                        {links.linkedin && (
-                            <div style={{ textAlign: 'center', paddingRight: '10px' }}>
-                                <Link href={`https://www.tiktok.com/@${links.tiktok}`} target="_blank">
-                                    <div
-                                        style={{
-                                            backgroundColor: socialColor,
-                                            width: `${socialSize}px`,
-                                            height: `${socialSize}px`,
-                                            borderRadius: '50%',
-                                            display: "block",
-                                            padding: '3px',
-                                            margin: '10px 0 0 0'
-                                        }}
-                                    >
-                                        <Image
-                                            src='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAMAAAAp4XiDAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAMFBMVEVHcEz///////////////////////////////////////////////////////////9EPuwCAAAAD3RSTlMA9unEHjKIsJ8IZtURTTtMOVWGAAAA4klEQVR42u2USwrDMAxELdmy5e/c/7aFBpRQQ+wuCqX0rWaCXkhQHPfVhFiJagz7RiE8ob5rDEBHa6Ig2VQS4hEi0qbCaEcI4G0lmPK5BxOCjpZFAXGbdMYTKm6bFj3bKr8HD8NPNXf1TFy1Z3eCC6+1sGUuV+VML9UDNY6QmxQPpLyhoPbrKnxeKQRt7iRUxJVSyvSZjIUyEZHeVRohrJSgTKzBekJZKJ2OjQx7O+i9EghJsiRwcweCeq8okp1BO7f3CkPs3gcZtNp+tkG7tFIs/JW/8qPKyVSnifWff574KR5zWR1PuseM5gAAAABJRU5ErkJggg=='
-                                            alt="LinkedIn"
-                                            width={socialSize}
-                                            height={socialSize}
-                                            style={{ display: 'block', width: `100%`, height: `100%`, margin: 'auto' }}
-                                        />
-                                    </div>
-                                </Link>
-                            </div>
-                        )}
-
-                        {links.pinterest && (
-                            <div style={{ textAlign: 'center', paddingRight: '10px' }}>
-                                <Link href={`https://www.pinterest.com/${links.pinterest}`} target="_blank">
-                                    <div
-                                        style={{
-                                            backgroundColor: socialColor,
-                                            width: `${socialSize}px`,
-                                            height: `${socialSize}px`,
-                                            borderRadius: '50%',
-                                            display: "block",
-                                            padding: '3px',
-                                            margin: '10px 0 0 0'
-                                        }}
-                                    >
-                                        <Image
-                                            src='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGAAAABgCAMAAADVRocKAAAACXBIWXMAAAsTAAALEwEAmpwYAAAANlBMVEVHcEz///////////////////////////////////////////////////////////////////+GUsxbAAAAEXRSTlMABQ4aKzxNX3GGlqi7zN/t+QnWvmUAAATlSURBVHjatVlZlqMwDMT7hrf7X3YekHQZyxCSAX01nVhLlSRLZLomTGrrQowp51JzSnH2Vks23SLS+FjqSMrs1P8aUS7VUylB/65duFwvSHLiN+dDgZ8xOKuVlIKziQsptfUzYsuOf4/8DKTtC2lG2An5bcJ+p5778jroz2lk+h3nLL5BJ70OGXaFqc1ENlfVM/dSLyfIFRPuIjwb+lF9w1isi3h2xZ24Mmt7s8r4sFRyLTnNfuWdRh0u6F/hT7IrtziqsJ0NXdYYPuITV/R5a/KwmPOuwtSasvYDvyv+gTXo+nLWKBzvLJRz6lynn7s/9TEspcz5xLnUFhWmGwtlQZef+K9WfBiphxKM6AtZ+Vy71GHmAw18OZKAq93cT2bsFLebiYgTYXmW5wApPL7UT0MBggU+8bQYPKyWsgvQbwDw8wpLdRf1CpKexhJ2FFlQ+Lnuwdu8PB2U2BKA+eNw1Q84P2S2351ThwwkBjCh/4IF6IxHicRyW4ceWJ4InIFrevFsn9H4oHDwfa37AhYLR3vX4HPAw74khQ0xl5xisHJ8Fl77A4wSDHd8TzLURmY5zg/dQJGoftEiZFtQJ1O6DmcGISA5+fJ1ekGbtgRjy7ehPZTEIFv35iEJrkGO18YHvfUbqwTjQtmtnx8AjHDcsIxNozO2OVjsPtTCqH9QajoXgIoaROPIJZJGDdM0JCj4R46RaFiCa9QViETqMDFMo7zBDhXwJnPqyigJc0NhJgaW3GKNCtGgRb/JSaNZkCR/02OIhlPuAUaevjYAiBANcprS+QmiMib5ioEA1gckwxgEmgyNxhOI0vBC0YgLxiBdD4xw2/ZFI1FnpNCIMdKLaK2r/vpwvUUCJZyi3VTAWCLXx/CZdFBEAyEdlBdoCXt3zPBCZOheoHOEYqQXmtphzknngE43TAOIwGzABEaw/dcdgOyZr5JeXRCAAUXVkN6mySaGiCNJl+FoLRsoqtrTxyQZz+kVjhwc0zz3c0t7hUfcDXTmZKd5BgBMQ5vdt1Nex+mh8P/DwQtKM0emSuQc+jwRFhfQGZmvjub3sBtuGCggNwGZMjEinW4gtu2ZajVEexQEaxNGqvNBuegXU6rvKw5ZcLT48Xy+yoq8Tu3ocbuyl3T212WfWQ40QsiBrLae+YpEIguwLrVromlYPAsAkJZXLm+R9Hiov3gXg61CFoHXkbAF9TVuDgq6xXM2kk1ChwL9+PhsbUEevNkMfcS+Qsimby6+cDHlzzFQ0DpJlwXwl8TF10tZHMxAKkJ9Mp1fmOzPhRkn32jN1L6bU6k5etUe8XWroavCKAVqzskDARLXZf10BgLENVs2wDTUb/XTGYilN/B2n+jcxNcHF/AfbxW4LfAuWPBp4kIZ/8e5599pR0vFQzC5HkgE479RIMr6wF0ZqtfTDyJaCux7VhA29dotwP+dgtRkrLQ+5lK3Vwta/KCazh8KE9ddguUaU9mtghEQ4/Ctgn0fb0fuEkpBxN/3CIYU3PY3UoxBkZPXQY9QwPLtFGPqxd70BAUG45C/VzsWDyxIdwqmXoykj1AAis2durHsPkUxFg9U8XMUqCcobqfeAIrv7nQWO9czBgx+tnjOgMDO9UgZMKzOj/RSFuoTAeASbn7CeqSSC36EewYj6H8mhEXiI/qx9Ac+PSc6pRua9D+BZIQCkuKCHAAAAABJRU5ErkJggg=='
-                                            alt="Pinterest"
-                                            width={socialSize}
-                                            height={socialSize}
-                                            style={{ display: 'block', width: `100%`, height: `100%`, margin: 'auto' }}
-                                        />
-                                    </div>
-                                </Link>
-                            </div>
-                        )}
-
-                        {links.reddit && (
-                            <div style={{ textAlign: 'center', paddingRight: '10px' }}>
-                                <Link href={`https://www.reddit.com/r/${links.reddit}`} target="_blank">
-                                    <div
-                                        style={{
-                                            backgroundColor: socialColor,
-                                            width: `${socialSize}px`,
-                                            height: `${socialSize}px`,
-                                            borderRadius: '50%',
-                                            display: "block",
-                                            padding: '3px',
-                                            margin: '10px 0 0 0'
-
-                                        }}
-                                    >
-                                        <Image
-                                            src='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAMAAAAp4XiDAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAP1BMVEVHcEz///////////////////////////////////////////////////////////////////////////////9KjZoYAAAAFHRSTlMA+urUJKG/G/OuXXkLTJIFPBNtL445wJEAAAHsSURBVHja7ZTblqswCIbJgUBijEb/93/WvWw1bWas9navNd8VKMhBgP5DKlvLlR7MQTWMdEN2AOBkkwc8GOiaAifePXxGmEFkMLiOkxUrUXWwiw8YnrECXTCNz/c5YkM2WaA3eZW9cnZfusS3xO8Sa2Zzk78s38FT47smW1Rq3PzKPC8cnAWsCzzMmW6oKRh0mJAq/cazhWVPng1gXEnzKjnLOqfitifsm8nOqIABNBogpEwdOQXAxN1k3GMooifvAFM8neCLAZwnH6FPAwYTTQUInj7gA1Cmp+mGhacpQhNdkBRxIg+7KRPM5m5XumS1YCKDI8oCXemGVbHsUYgR9JgeiaqxldTrIzSAj47tEokFACtEZzoDursnqBwTH0UiItGZLgZHixbwLimkbdKJzlj6bbp3SYjdatwnRh6ufSsfz57lejrXM7RzuWlyc2kT8xUetmWc6Ja+/AFMXxHbwRCo0Eem2gozptlxCzO5+HMrg0pn1vZyPFzguoji4HIbS0+N1/B7Cx2kOQwK61/DT433FasRMKEsKS0lGCDW9xV70S3yHA12TJy7Re7ozkUeh8JchjH35+InSa+O0vkxEcan0wcWOmdlA8BxmqUSVZkTOwCGV/qMLL/P+FLpI632GKwFrA1x68AfHf8Abl0hniSG4/UAAAAASUVORK5CYII='
-                                            alt="Reddit"
-                                            width={socialSize}
-                                            height={socialSize}
-                                            style={{ display: 'block', width: `100%`, height: `100%`, margin: 'auto' }}
-                                        />
-                                    </div>
+                    </div>
+                    <div style={{ verticalAlign: 'middle', marginRight: 'auto' }}>
+                        <p style={{ color: nameColor, fontWeight: '700', fontSize: `${fontSize}px`, lineHeight: '1.4', margin: 'auto' }}>
+                            {name}
+                        </p>
+                        <p style={{ paddingBottom: '6px', fontSize: `${fontSize - 2}px`, margin: 'auto' }}>
+                            {title} | {company}
+                        </p>
+                        <p style={{ paddingBottom: '6px', fontSize: `${fontSize - 2}px`, margin: 'auto' }}>
+                            <span style={{ fontWeight: '600' }}>p:</span> {phone}
+                        </p>
+                        <p style={{ paddingBottom: '6px', fontSize: `${fontSize - 2}px`, margin: 'auto' }}>
+                            <span style={{ fontWeight: '600' }}>e:</span> {email}
+                        </p>
+                        {displayText && (
+                            <div style={{}}>
+                                <Link
+                                    href={`https://www.${encodeURIComponent(displayText)}.com`}
+                                    target="_blank"
+                                    style={{ textDecoration: 'none', fontSize: `${fontSize}px`, }}
+                                >
+                                    w: {nameText}
                                 </Link>
                             </div>
                         )}
                     </div>
+                </div>
+                <div style={{ display: 'flex', paddingTop: '20px', verticalAlign: 'middle' }}>
+                    {links.instagram && (
+                        <Link href={`https://www.instagram.com/${links.instagram}`} target="_blank">
+                            <div className='pb-1'
+                                style={{
+                                    backgroundColor: socialColor,
+                                    // width: `${socialSize}px`,
+                                    // height: `${socialSize}px`,
+                                    width: '65px',
+                                    // height: '25px',
+                                    textAlign: 'center',
+                                    borderRadius: '5px',
+                                    paddingTop: '5px',
+                                    marginRight: '3px',
+
+                                }}
+                            >
+                                <Image
+                                    src="data:image/png;base64,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"
+                                    alt="Instagram"
+                                    width={socialSize}
+                                    height={socialSize}
+                                    style={{ display: 'block', verticalAlign: 'middle', margin: 'auto' }}
+                                />
+                            </div>
+                        </Link>
+                    )}
+                    {links.facebook && (
+                        <div style={{ paddingBottom: '10px', textAlign: 'center' }}>
+                            <Link href={`https://www.facebook.com/${links.facebook}`} target="_blank">
+                                <div className='pb-1'
+                                    style={{
+                                        backgroundColor: socialColor,
+                                        // width: `${socialSize}px`,
+                                        // height: `${socialSize}px`,
+                                        width: '65px',
+                                        // height: '25px',
+                                        textAlign: 'center',
+                                        borderRadius: '5px',
+                                        paddingTop: '5px',
+                                        marginRight: '3px',
+
+                                    }}
+                                >
+                                    <Image
+                                        src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAMAAACdt4HsAAAAJFBMVEVHcEz///////////////////////////////////////////8Uel1nAAAAC3RSTlMACiE6RWJ3iKPL4/2e55kAAAChSURBVHja7dbLCgMhDIXhGHWMOe//vi1ScApdjB56g3xLF78QXURC+Be5Hg9F1qk5JpVFyfCkyBrtoALJwQU6uEAFF0hOBgrIgLGBjmnrIzlOurW7IitwYrIBkycyYPLZQLUBU2/DxSkqpq13zO8MuJABYwOVDSgZcCEDxgaqXKHMCIbcBpzYOMmy5MXVEYhABL4ScExJNujRHo4c+374eTfT3iB+V7Ic5AAAAABJRU5ErkJggg=="
+                                        alt="Facebook"
+                                        width={socialSize}
+                                        height={socialSize}
+                                        style={{ display: 'block', verticalAlign: 'middle', margin: 'auto' }}
+                                    />
+                                </div>
+                            </Link>
+                        </div>
+                    )}
+                    {links.tiktok && (
+                        <div style={{ paddingBottom: '10px', textAlign: 'center' }}>
+                            <Link href={`https://www.tiktok.com/@${links.tiktok}`} target="_blank">
+                                <div className='pb-1'
+                                    style={{
+                                        backgroundColor: socialColor,
+                                        // width: `${socialSize}px`,
+                                        // height: `${socialSize}px`,
+                                        width: '65px',
+                                        // height: '25px',
+                                        textAlign: 'center',
+                                        borderRadius: '5px',
+                                        paddingTop: '5px',
+                                        marginRight: '3px',
+
+                                    }}
+                                >
+                                    <Image
+                                        src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAMAAAAp4XiDAAAAJ1BMVEVHcEz//////////v///v///v7//v7//v7//v///////v///////v6hEWneAAAAC3RSTlMABBhBZIGWp83n8pXIixAAAAEDSURBVHja7dbBbsMgDIBhbBOwwe//vKPdLLZCin3bob96CvpEEyQn6dNdfYRxQlGi32GcUJyUOBEMEy1xojlOGgWIleNEK4aJtkIYIJabcJxAllsCVFiuhTwWKrfxW0CWPtqQu5D7IxVhlstDSJ7gJw9BMeAlwCbcJD/FPGY4EpApKrqeGM1NrpQ8BIota00+ktiWG3qJzGHiJboZWeDcBec1fE/YVmFeo/ekbHYpRmRLaL0XbEZ4JwBkeWL1NJLz67lc/TT4gf+cPtYpBNI+bPY3AKm0Ic5zktTqoykY0tmMDJzeLdR0SQ4jH/lVMKZTWX4DyXACNi91JFzIwIH8l0+bLw6jIBvwyzNCAAAAAElFTkSuQmCC"
+                                        alt="TikTok"
+                                        width={socialSize}
+                                        height={socialSize}
+                                        style={{ display: 'block', verticalAlign: 'middle', margin: 'auto' }}
+                                    />
+                                </div>
+                            </Link>
+                        </div>
+                    )}
+
+                    {links.linkedin && (
+                        <div style={{ paddingBottom: '10px', textAlign: 'center' }}>
+                            <Link href={`https://www.linkedin.com/${links.linkedin}`} target="_blank">
+                                <div className='pb-1'
+                                    style={{
+                                        backgroundColor: socialColor,
+                                        // width: `${socialSize}px`,
+                                        // height: `${socialSize}px`,
+                                        width: '65px',
+                                        // height: '25px',
+                                        textAlign: 'center',
+                                        borderRadius: '5px',
+                                        paddingTop: '5px',
+                                        marginRight: '3px',
+
+                                    }}
+                                >
+                                    <Image
+                                        src="data:image/png;base64,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"
+                                        alt="Linkedin"
+                                        width={socialSize}
+                                        height={socialSize}
+                                        style={{ display: 'block', verticalAlign: 'middle', margin: 'auto' }}
+                                    />
+                                </div>
+                            </Link>
+                        </div>
+                    )}
+                    {links.pinterest && (
+                        <div style={{ paddingBottom: '10px', textAlign: 'center' }}>
+                            <Link href={`https://www.pinterest.com/${links.pinterest}`} target="_blank">
+                                <div className='pb-1'
+                                    style={{
+                                        backgroundColor: socialColor,
+                                        // width: `${socialSize}px`,
+                                        // height: `${socialSize}px`,
+                                        width: '65px',
+                                        // height: '25px',
+                                        textAlign: 'center',
+                                        borderRadius: '5px',
+                                        paddingTop: '5px',
+                                        marginRight: '3px',
+
+                                    }}
+                                >
+                                    <Image
+                                        src="data:image/png;base64,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"
+                                        alt="Pinterest"
+                                        width={socialSize}
+                                        height={socialSize}
+                                        style={{ display: 'block', verticalAlign: 'middle', margin: 'auto' }}
+                                    />
+                                </div>
+                            </Link>
+                        </div>
+                    )}
+                    {links.reddit && (
+                        <div style={{ paddingBottom: '10px', textAlign: 'center' }}>
+                            <Link href={`https://www.reddit.com/r/${links.reddit}`} target="_blank">
+                                <div className='pb-1'
+                                    style={{
+                                        backgroundColor: socialColor,
+                                        // width: `${socialSize}px`,
+                                        // height: `${socialSize}px`,
+                                        width: '65px',
+                                        // height: '25px',
+                                        textAlign: 'center',
+                                        borderRadius: '5px',
+                                        paddingTop: '5px',
+                                        marginRight: '3px',
+
+                                    }}
+                                >
+                                    <Image
+                                        src="data:image/png;base64,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"
+                                        alt="Reddit"
+                                        width={socialSize}
+                                        height={socialSize}
+                                        style={{ display: 'block', verticalAlign: 'middle', margin: 'auto' }}
+                                    />
+                                </div>
+                            </Link>
+                        </div>
+                    )}
                 </div>
                 <div style={{ display: 'flex' }}>
                     <div style={{ marginTop: `${socialButtonPadding}px`, }}>
@@ -515,7 +515,7 @@ export default function template2({
                         </Link>
                     }
                 </div>
-                <div style={{ display: 'flex', margin: '0px', }}>
+                <div style={{ display: 'flex', margin: '0px' }}>
                     {selectedOption === 'zoom' && (
                         <div style={{
                             position: 'relative',
@@ -763,22 +763,7 @@ export default function template2({
                         <p style={{ fontSize: disclaimerTextSize, color: disclaimerTextColor, width: disclaimerTextWidth, }}>{disclaimerText}</p>
                     </div>
                 </div>
-            </div >
-            <style jsx>{`
-    @media screen and (max-width: 600px) {
-        div {
-        }
-        a {
-            display: block;
-            margin: 10px auto;
-        }
-        img {
-            max-width: 100%;
-            height: auto;
-        }
-    }
-`}</style>
-        </div >
-
+            </div>
+        </>
     );
 }

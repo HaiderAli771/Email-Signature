@@ -3,7 +3,8 @@ import SignatureTemplate1 from './templates/template1';
 import SignatureTemplate2 from './templates/template2';
 import SignatureTemplate3 from './templates/template3';
 import SignatureTemplate4 from './templates/template4';
-import { ILinks } from '../types';
+import { ILinks } from './types';
+import { env } from 'process';
 
 interface Props {
     imageSize: number;
@@ -28,6 +29,8 @@ interface Props {
     bgColor: string,
     socialSize: number,
     socialColor: string,
+    nameColor: string,
+    // signatureTemplate1: string,
 }
 
 const Preview = ({
@@ -49,9 +52,13 @@ const Preview = ({
     bgColor,
     socialSize,
     socialColor,
-
-
+    nameColor,
+    // signatureTemplate1
 }: Props) => {
+    const { CLOUDFLARE_ACCESS_ID,
+        CLOUDFLARE_ACCESS_KEY,
+        CLOUDFLARE_ACCOUNT_ID,
+        CLOUDFLARE_R2_BUCKET_NAME, } = env;
     const profileImageSrc = typeof profileImage === 'string' ? profileImage : '';
 
     return (
@@ -97,88 +104,91 @@ const Preview = ({
                 </button>
             </div>
 
-            <div className="bg-gray-50 p-4 rounded-md mt-4">
-                {selectedTemplate === 'Template1' && (
-                    <SignatureTemplate1
-                        name={name}
-                        title={jobType}
-                        company={position}
-                        phone={phoneNumber}
-                        email={email}
-                        imageSize={imageSize}
-                        changeImg={profileImageSrc}
-                        links={links}
-                        displayText={displayText}
-                        nameText={nameText}
-                        selectedFont={selectedFont}
-                        fontSize={fontSize}
-                        textColor={textColor}
-                        bgColor={bgColor}
-                        socialSize={socialSize}
-                        socialColor={socialColor}
-                    />
-                )}
-                {selectedTemplate === 'Template2' && (
-                    <SignatureTemplate2
-                        name={name}
-                        title={jobType}
-                        company={position}
-                        phone={phoneNumber}
-                        email={email}
-                        imageSize={imageSize}
-                        changeImg={profileImageSrc}
-                        links={links}
-                        displayText={displayText}
-                        nameText={nameText}
-                        selectedFont={selectedFont}
-                        fontSize={fontSize}
-                        textColor={textColor}
-                        bgColor={bgColor}
-                        socialSize={socialSize}
-                        socialColor={socialColor}
-
-                    />
-                )}
-                {selectedTemplate === 'Template3' && (
-                    <SignatureTemplate3
-                        name={name}
-                        title={jobType}
-                        company={position}
-                        phone={phoneNumber}
-                        email={email}
-                        imageSize={imageSize}
-                        changeImg={profileImageSrc}
-                        links={links}
-                        displayText={displayText}
-                        nameText={nameText}
-                        selectedFont={selectedFont}
-                        fontSize={fontSize}
-                        textColor={textColor}
-                        bgColor={bgColor}
-                        socialSize={socialSize}
-                        socialColor={socialColor}
-                    />
-                )}
-                {selectedTemplate === 'Template4' && (
-                    <SignatureTemplate4
-                        name={name}
-                        title={jobType}
-                        company={position}
-                        phone={phoneNumber}
-                        email={email}
-                        imageSize={imageSize}
-                        changeImg={profileImageSrc}
-                        links={links}
-                        displayText={displayText}
-                        nameText={nameText}
-                        selectedFont={selectedFont}
-                        fontSize={fontSize}
-                        textColor={textColor}
-                        socialSize={socialSize}
-                        bgColor={bgColor}
-                        socialColor={socialColor}
-                    />
-                )}
+            <div className="flex flex-row gap-5 justify-center bg-gray-50 p-4 rounded-md mt-4">
+                {/* {selectedTemplate === 'Template1' && ( */}
+                <SignatureTemplate1
+                    name={name}
+                    title={jobType}
+                    company={position}
+                    phone={phoneNumber}
+                    email={email}
+                    imageSize={imageSize}
+                    changeImg={profileImageSrc}
+                    links={links}
+                    displayText={displayText}
+                    nameText={nameText}
+                    selectedFont={selectedFont}
+                    fontSize={fontSize}
+                    textColor={textColor}
+                    bgColor={bgColor}
+                    socialSize={socialSize}
+                    socialColor={socialColor}
+                    nameColor={nameColor}
+                />
+                {/* )} */}
+                {/* {selectedTemplate === 'Template2' && ( */}
+                <SignatureTemplate2
+                    name={name}
+                    title={jobType}
+                    company={position}
+                    phone={phoneNumber}
+                    email={email}
+                    imageSize={imageSize}
+                    changeImg={profileImageSrc}
+                    links={links}
+                    displayText={displayText}
+                    nameText={nameText}
+                    selectedFont={selectedFont}
+                    fontSize={fontSize}
+                    textColor={textColor}
+                    bgColor={bgColor}
+                    socialSize={socialSize}
+                    socialColor={socialColor}
+                    nameColor={nameColor}
+                />
+                {/* )} */}
+                {/* {selectedTemplate === 'Template3' && ( */}
+                <SignatureTemplate3
+                    name={name}
+                    title={jobType}
+                    company={position}
+                    phone={phoneNumber}
+                    email={email}
+                    imageSize={imageSize}
+                    changeImg={profileImageSrc}
+                    links={links}
+                    displayText={displayText}
+                    nameText={nameText}
+                    selectedFont={selectedFont}
+                    fontSize={fontSize}
+                    textColor={textColor}
+                    bgColor={bgColor}
+                    socialSize={socialSize}
+                    socialColor={socialColor}
+                    nameColor={nameColor}
+                />
+                {/* )} */}
+                {/* {selectedTemplate === 'Template4' && ( */}
+                <SignatureTemplate4
+                    name={name}
+                    title={jobType}
+                    company={position}
+                    phone={phoneNumber}
+                    email={email}
+                    imageSize={imageSize}
+                    changeImg={profileImageSrc}
+                    links={links}
+                    displayText={displayText}
+                    nameText={nameText}
+                    selectedFont={selectedFont}
+                    fontSize={fontSize}
+                    textColor={textColor}
+                    socialSize={socialSize}
+                    bgColor={bgColor}
+                    socialColor={socialColor}
+                    nameColor={nameColor}
+                />
+                {/* )} */}
             </div>
         </div>
     );

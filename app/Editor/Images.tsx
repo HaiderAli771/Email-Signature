@@ -3,7 +3,6 @@ import Image from 'next/image';
 
 interface Props {
     selectedTemplate: string;
-    handleTemplateClick: (template: string) => void;
     name: string;
     jobType: string;
     phoneNumber: string;

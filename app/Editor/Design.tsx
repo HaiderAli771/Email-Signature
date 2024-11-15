@@ -12,10 +12,17 @@ interface Props {
     socialSize: number,
     handleSocialSizeChange: (e: React.ChangeEvent<HTMLInputElement>) => void,
     socialColor: string,
+    nameColor: string,
     setSocialColor: Dispatch<SetStateAction<string>>,
-
+    setNameColor: Dispatch<SetStateAction<string>>,
+    handleBannerUrlChange: (event: React.ChangeEvent<HTMLInputElement>) => void,
+    bannerImg: string | number | readonly string[] | undefined,
+    handleFileUpload: (event: React.ChangeEvent<HTMLInputElement>) => void,
+    imgError: string | undefined,
+    bannerLink: string,
+    handleBannerLinkChange: (event: React.ChangeEvent<HTMLInputElement>) => void
 }
-const Design = ({ selectedFont, setSelectedFont, fontSize, socialColor, setSocialColor, setFontSize, bgColor, setBgColor, textColor, setTextColor, socialSize, handleSocialSizeChange }: Props) => {
+const Design = ({ selectedFont, bannerImg, imgError, bannerLink, handleBannerLinkChange, handleFileUpload, handleBannerUrlChange, setSelectedFont, fontSize, socialColor, nameColor, setNameColor, setSocialColor, setFontSize, bgColor, setBgColor, textColor, setTextColor, socialSize, handleSocialSizeChange }: Props) => {
     return (
         <div>
             <div className="md:max-w-md p-4 bg-white shadow-md rounded-lg">
@@ -38,7 +45,7 @@ const Design = ({ selectedFont, setSelectedFont, fontSize, socialColor, setSocia
                     <h1>Font Size</h1>
                     <input
                         type="range"
-                        min="15"
+                        min="13"
                         max="23"
                         value={fontSize}
                         onChange={(e) => setFontSize(Number(e.target.value))}
@@ -63,16 +70,15 @@ const Design = ({ selectedFont, setSelectedFont, fontSize, socialColor, setSocia
                         className="md:w-16 cursor-pointer h-16 border-0"
                     />
                 </div>
-                <div className='flex flex-row justify-between mt-10 items-center'>
+                <div className='flex flex-row justify-between mt-10 gap-5 items-center'>
                     <h1>Social Icon Size:</h1>
                     <input
-                        id="size-slider"
                         type="range"
                         min="20"
                         max="60"
                         value={socialSize}
                         onChange={handleSocialSizeChange}
-                        className="mt-[22px] mb-[22px] md:w-52 h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer"
+                        className="md:w-64 h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer"
                     />
                 </div>
                 <div className='flex flex-row justify-between mt-10 items-center'>
@@ -81,6 +87,15 @@ const Design = ({ selectedFont, setSelectedFont, fontSize, socialColor, setSocia
                         type="color"
                         value={socialColor}
                         onChange={(e) => setSocialColor(e.target.value)}
+                        className="md:w-16 cursor-pointer h-16 border-0"
+                    />
+                </div>
+                <div className='flex flex-row justify-between mt-10 items-center'>
+                    <h1>Name Color:</h1>
+                    <input
+                        type="color"
+                        value={nameColor}
+                        onChange={(e) => setNameColor(e.target.value)}
                         className="md:w-16 cursor-pointer h-16 border-0"
                     />
                 </div>
