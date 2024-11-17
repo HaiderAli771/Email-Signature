@@ -185,6 +185,7 @@ export default function Template4({
                 fontFamily: selectedFont,
                 fontSize: `${fontSize}px`,
                 maxWidth: '519px',
+                width: 'fit-content',
                 overflowX: 'auto',
                 overflowY: 'hidden',
                 // boxShadow: '1px 1px 1px',
@@ -194,7 +195,7 @@ export default function Template4({
 
             }}
         >
-            <div style={{ width: 'fit-content' }} className='md:flex md:flex-col'>
+            <div style={{}} className='md:flex md:flex-col'>
                 <p style={{ fontSize: `${signatureSize}px`, fontWeight: '600', marginBottom: '10px', color: `${signatureColor}` }}>{signature}</p>
 
                 <div style={{ display: 'inline-table', marginTop: 'auto', marginBottom: 'auto', paddingRight: '20px' }}>

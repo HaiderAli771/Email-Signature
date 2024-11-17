@@ -180,10 +180,11 @@ export default function template3({
                 overflowX: 'auto',
                 padding: '24px',
                 maxWidth: '519px',
+                width: 'fit-content',
                 position: 'sticky',
 
             }}>
-                <div style={{ width: 'fit-content' }}>
+                <div style={{}}>
                     <p style={{ fontSize: `${signatureSize}px`, fontWeight: '600', margin: '0', color: `${signatureColor}` }}>{signature}</p>
                     <div style={{ display: 'inline-table', alignSelf: 'center', marginTop: 'auto', marginBottom: 'auto', paddingRight: '20px' }}>
                         {changeImg && (

@@ -171,8 +171,8 @@ export default function SignatureTemplate7({
 }: Props) {
     return (
         <>
-            <div ref={signatureRef} className='xl:sticky' style={{ maxWidth: '520px', fontFamily: selectedFont, backgroundColor: bgColor, padding: '20px', color: textColor, borderRadius: '10px', overflowX: 'auto', }}>
-                <div style={{ display: 'flex', width: 'fit-content', }}>
+            <div ref={signatureRef} className='xl:sticky' style={{ maxWidth: '520px', width: 'fit-content', fontFamily: selectedFont, backgroundColor: bgColor, padding: '20px', color: textColor, borderRadius: '10px', overflowX: 'auto', }}>
+                <div style={{ display: 'flex' }}>
                     <div style={{ verticalAlign: 'middle', marginTop: 'auto', marginBottom: 'auto' }}>
                         {changeImg && (
                             <div style={{ margin: 'auto', textAlign: 'center', marginRight: '20px' }}>
@@ -763,7 +763,7 @@ export default function SignatureTemplate7({
                         <p style={{ fontSize: disclaimerTextSize, color: disclaimerTextColor, width: disclaimerTextWidth, }}>{disclaimerText}</p>
                     </div>
                 </div>
-            </div>
+            </div >
         </>
     );
 }

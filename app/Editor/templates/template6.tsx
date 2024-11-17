@@ -171,7 +171,7 @@ export default function SignatureTemplate6({
 
     return (
         <>
-            <div ref={signatureRef} style={{ fontFamily: selectedFont, backgroundColor: bgColor, padding: '20px', color: textColor, borderRadius: '10px', maxWidth: '519px', position: 'sticky', overflowX: 'auto', }}>
+            <div ref={signatureRef} style={{ fontFamily: selectedFont, backgroundColor: bgColor, padding: '20px', color: textColor, borderRadius: '10px', maxWidth: '519px', position: 'sticky', width: "fit-content", overflowX: 'auto', }}>
                 <div style={{ padding: '0', margin: '0' }}>
                     <div style={{ paddingLeft: '15px' }}>
                         <div>

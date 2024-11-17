@@ -185,13 +185,14 @@ export default function SignatureTemplate5({
                     maxWidth: '519px',
                     overflowX: 'auto',
                     overflowY: 'hidden',
+                    width: 'fit-content',
                     // boxShadow: '1px 1px 1px',
                     padding: '24px',
                     // position: 'sticky',
 
                 }}
             >
-                <div style={{ width: 'fit-content' }} className='md:flex md:flex-col md:justify-center md:items-center'>
+                <div style={{}} className='md:flex md:flex-col md:justify-center md:items-center'>
                     <p style={{ fontSize: `${signatureSize}px`, fontWeight: '600', margin: '0', color: `${signatureColor}`, textAlign: 'center', paddingLeft: '16px', }}>{signature}</p>
 
                     <div style={{ alignItems: 'center', margin: 'auto' }}>

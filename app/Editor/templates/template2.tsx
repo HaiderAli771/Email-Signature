@@ -169,7 +169,7 @@ export default function template2({
 
 
     return (
-        <div ref={signatureRef} style={{ maxWidth: '545px', }} className='md:flex md:flex-col md:justify-center md:items-center'>
+        <div ref={signatureRef} style={{ maxWidth: '545px', width: 'fit-content' }} className='md:flex md:flex-col md:justify-center md:items-center'>
             <div
                 className="xl:position-sticky"
                 style={{
@@ -182,6 +182,7 @@ export default function template2({
                     overflowY: 'hidden',
                     // boxShadow: '1px 1px 1px',
                     padding: '24px',
+
                     // position: 'sticky',
                 }}
             >

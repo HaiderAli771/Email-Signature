@@ -183,6 +183,7 @@ export default function SignatureTemplate1({
                 fontSize: `${fontSize}px`,
                 maxWidth: '519px',
                 overflowX: 'auto',
+                width: 'fit-content',
                 overflowY: 'hidden',
                 // boxShadow: '1px 1px 1px',
                 padding: '24px',

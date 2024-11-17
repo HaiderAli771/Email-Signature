@@ -167,7 +167,7 @@ export default function SignatureTemplate10({
     disclaimerTextColor,
 }: Props) {
     return (
-        <div ref={signatureRef} style={{ maxWidth: '550px', overflowX: 'auto', borderRadius: '10px', overflowY: 'hidden', padding: '20px', backgroundColor: bgColor, }}>
+        <div ref={signatureRef} style={{ maxWidth: '450px', width: 'fit-content', overflowX: 'auto', borderRadius: '10px', overflowY: 'hidden', padding: '20px', backgroundColor: bgColor, }}>
 
             <div style={{ textAlign: 'center', paddingBottom: '20px', display: 'flex' }}>
                 <div style={{
