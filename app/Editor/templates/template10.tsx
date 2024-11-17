@@ -82,7 +82,7 @@ interface Props {
     disclaimerTextWidth?: number,
     disclaimerTextSize?: number,
     disclaimerTextColor?: string,
-    disclaimerTextPadding: number,
+    disclaimerTextPadding?: number,
 }
 export default function SignatureTemplate10({
     name,

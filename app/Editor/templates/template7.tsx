@@ -12,7 +12,7 @@ interface Props {
     email: string;
     imageSize: number;
     changeImg: string | null;
-    bannerImg: string | null;
+    bannerImg?: string | null;
     links: ILinks;
     displayText: string;
     nameText: string;

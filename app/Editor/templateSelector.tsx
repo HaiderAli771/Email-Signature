@@ -327,7 +327,7 @@ const TemplateSelector = ({
                             selectedOption={'zoom'}
                             meetingBackgroundColor='#C688BAff'
                             calenderLink='/'
-                            linkedinLink='' amazonLink='' appStoreLink='' ebayLink='' instagramLink={''} patreonLink={''} facebookLink={''} youtubeLink={''} twitterLink={''} pinterestLink={''} vimeoLink={''} socialButtonSize={0} />
+                            linkedinLink='' amazonLink='' appStoreLink='' ebayLink='' instagramLink={''} patreonLink={''} facebookLink={''} youtubeLink={''} twitterLink={''} pinterestLink={''} vimeoLink={''} socialButtonSize={0} disclaimerTextPadding={0} />
                     </div>
                     <div
                         onClick={() => handleTemplateSelection('Template6')}
@@ -399,7 +399,7 @@ const TemplateSelector = ({
                             bgColor={bgColor}
                             socialSize={socialSize}
                             socialColor={socialColor}
-                            nameColor={nameColor} bannerImg={BannerImage} />
+                            nameColor={nameColor} bannerImg={BannerImage} dribbleLink={''} behanceLink={''} linkedinLink={''} instagramLink={''} patreonLink={''} facebookLink={''} youtubeLink={''} twitterLink={''} pinterestLink={''} vimeoLink={''} socialButtonSize={0} amazonLink={''} appStoreLink={''} ebayLink={''} googleBussinessLink={''} retailButtonSize={0} socialButtonPadding={0} retailButtonPadding={0} signature={''} signatureSize={0} signatureColor={''} zoomLink={''} zoomText={''} meetingButtonSize={0} meetingButtonPadding={0} googleMeetLink={''} googleMeetText={''} showZoom={false} microsoftTeamLink={''} meetingTextColor={''} calenderLink={''} />
                     </div>
                     <div
                         onClick={() => handleTemplateSelection('Template8')}

@@ -11,7 +11,7 @@ interface Props {
     email: string;
     imageSize: number;
     changeImg: string | null;
-    bannerImg: string | null;
+    bannerImg?: string | null;
     links: ILinks;
     displayText: string;
     nameText: string;
@@ -84,7 +84,7 @@ interface Props {
     disclaimerTextSize?: number,
     disclaimerTextColor?: string,
     disclaimerTextPadding: number,
-    textButton: [string, Dispatch<SetStateAction<string>>],
+    textButton?: [string, Dispatch<SetStateAction<string>>],
 
 }
 
