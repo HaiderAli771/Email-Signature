@@ -1,5 +1,5 @@
 "use client";
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, Suspense, useEffect } from 'react';
 import { ILinks } from './types';
 import { useRouter } from "next/navigation";
 import Editor from './templateSelector'
@@ -97,29 +97,31 @@ const Page = () => {
 
   return (
     <>
-      <Editor imageSize={imageSize}
-        name={name}
-        jobType={jobType}
-        phoneNumber={phoneNumber}
-        email={email}
-        position={position}
-        selectedTemplate={selectedTemplate}
-        handleTemplateClick={handleTemplateClick}
-        links={links}
-        handleFileChange={handleFileChange}
-        handleRemoveImage={handleRemoveImage}
-        profileImage={profileImage}
-        handleLinkChange={() => { }}
-        handleDeleteLink={() => { }}
-        displayText={displayText}
-        nameText={nameText}
-        selectedFont={selectedFont}
-        fontSize={fontSize}
-        textColor={textColor}
-        bgColor={bgColor}
-        socialSize={socialSize}
-        socialColor={socialColor}
-        nameColor={nameColor} />
+      <Suspense fallback={<div>Loading...</div>}>
+        <Editor imageSize={imageSize}
+          name={name}
+          jobType={jobType}
+          phoneNumber={phoneNumber}
+          email={email}
+          position={position}
+          selectedTemplate={selectedTemplate}
+          handleTemplateClick={handleTemplateClick}
+          links={links}
+          handleFileChange={handleFileChange}
+          handleRemoveImage={handleRemoveImage}
+          profileImage={profileImage}
+          handleLinkChange={() => { }}
+          handleDeleteLink={() => { }}
+          displayText={displayText}
+          nameText={nameText}
+          selectedFont={selectedFont}
+          fontSize={fontSize}
+          textColor={textColor}
+          bgColor={bgColor}
+          socialSize={socialSize}
+          socialColor={socialColor}
+          nameColor={nameColor} />
+      </Suspense>
     </>
   );
 }

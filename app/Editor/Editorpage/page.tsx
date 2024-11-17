@@ -1,5 +1,5 @@
 "use client";
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useRef, useEffect, Suspense } from 'react';
 import General from '../General';
 import Images from '../Images';
 import Social from '../social';
@@ -173,7 +173,8 @@ const Editorpage = () => {
         setDisplayText(displayText);
     };
 
-    const searchParams = useSearchParams();
+    const searchParams = useSearchParams()
+
     const templateFromQuery = searchParams.get('template');
 
 
@@ -1154,7 +1155,6 @@ const Editorpage = () => {
                 return null;
         }
     };
-
     return (
         <div>
             <div className="flex items-center pt-9 pl-28">
@@ -1462,13 +1462,16 @@ const Editorpage = () => {
                     // signatureTemplate={signatureTemplate}
                     />
                 </div> */}
+
                 <div className="p-4 max-h-fit md:flex md:flex-col md:items-center xl:sticky mb-16" style={{ top: '40px', }}>
-                    {renderedTemplate()}
-                    <div style={{ textAlign: 'center', marginTop: '20px' }}>
-                        <button onClick={copyToClipboard} style={{ padding: '10px 16px', backgroundColor: '#007bff', color: '#fff', border: 'none', borderRadius: '5px', cursor: 'pointer', fontWeight: '600' }}>
-                            Copy Signature
-                        </button>
-                    </div>
+                    <Suspense fallback={<div>Loading...</div>}>
+                        {renderedTemplate()}
+                        <div style={{ textAlign: 'center', marginTop: '20px' }}>
+                            <button onClick={copyToClipboard} style={{ padding: '10px 16px', backgroundColor: '#007bff', color: '#fff', border: 'none', borderRadius: '5px', cursor: 'pointer', fontWeight: '600' }}>
+                                Copy Signature
+                            </button>
+                        </div>
+                    </Suspense>
                 </div>
             </div>
 
@@ -1478,4 +1481,13 @@ const Editorpage = () => {
     );
 };
 
-export default Editorpage;
+const Page = () => {
+    return (
+        <Suspense fallback={<div>Loading...</div>}>
+            <Editorpage />
+        </Suspense>
+    )
+}
+
+
+export default Page;
