@@ -60,7 +60,7 @@ const Editorpage = () => {
     const [greenFontSize, setGreenFontSize] = useState<number>(10);
     const [calenderTextSize, setCalenderTextSize] = useState<number>(10);
     const [disclaimerTextSize, setDisclaimerTextSize] = useState<number>(10);
-    const [disclaimerTextWidth, setDisclaimerTextWidth] = useState<number>(457);
+    const [disclaimerTextWidth, setDisclaimerTextWidth] = useState<number>(400);
     const [disclaimerTextPadding, setDisclaimerTextPadding] = useState<number>(5);
     const [signatureSize, setSignatureSize] = useState(13);
     const [signatureColor, setSignatureColor] = useState('#0011FF');
