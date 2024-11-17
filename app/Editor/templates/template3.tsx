@@ -13,7 +13,7 @@ interface Props {
     phone: string;
     email: string;
     imageSize: number;
-    changeImg: string | null;
+    changeImg: string | ArrayBuffer | null;
     bannerImg: string | null;
     links: ILinks;
     displayText: string;
@@ -189,7 +189,7 @@ export default function template3({
                     <div style={{ display: 'inline-table', alignSelf: 'center', marginTop: 'auto', marginBottom: 'auto', paddingRight: '20px' }}>
                         {changeImg && (
                             <Image
-                                src={changeImg}
+                                src={changeImg as string}
                                 alt="Profile"
                                 width={imageSize}
                                 height={imageSize}

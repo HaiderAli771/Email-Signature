@@ -1,40 +1,11 @@
 "use client";
 import React, { useState, useRef, useEffect } from 'react';
-import Preview from './preview';
-import General from './General';
-import Images from './Images';
-import Social from './social';
-import LinkTab from './Links';
 import { ILinks } from './types';
-import Design from './Design';
-import { FaHome, FaImages, FaPaintBrush, FaPlus } from "react-icons/fa";
-import { IoShareSocialOutline } from 'react-icons/io5';
-import Link from 'next/link';
-import { PutObjectCommand, S3Client } from '@aws-sdk/client-s3'
 import { useRouter } from "next/navigation";
 import Editor from './templateSelector'
 
 
 const Page = () => {
-
-  // const handleTemplateSelection = (template: string) => {
-  //   handleTemplateClick(template);
-  //   router.push(`/editor?template=${template}`);
-  // };
-
-
-  // useEffect(() => {
-  //   if (template) {
-  //     setSelectedTemplate(template as string);
-  //   }
-  // }, [template]);
-  const socialMediaPlatforms = [
-    { name: 'Instagram', url: 'https://mysignature.io/', icon: '/instagram-brands-solid.svg' },
-    { name: 'Facebook', url: '', icon: '/facebook-brands-solid.svg' },
-    { name: 'Twitter', url: '', icon: '/square-x-twitter-brands-solid.svg' },
-    { name: 'Linkedin', url: '', icon: '/linkedin-brands-solid.svg' },
-  ];
-
   const [selectedTemplate, setSelectedTemplate] = useState<string>('Template1');
   const [selectedFont, setSelectedFont] = useState('Courier New');
   const [fontSize, setFontSize] = useState(13);

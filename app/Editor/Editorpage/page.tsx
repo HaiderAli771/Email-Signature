@@ -19,7 +19,7 @@ import Design from '../Design';
 import { FaHome, FaImages, FaPaintBrush, FaPlus } from "react-icons/fa";
 import { IoShareSocialOutline } from 'react-icons/io5';
 import Link from 'next/link';
-import { useRouter, useSearchParams } from 'next/navigation';
+import { useSearchParams } from 'next/navigation';
 
 const Editorpage = () => {
     const socialMediaPlatforms = [
@@ -442,7 +442,6 @@ const Editorpage = () => {
                     twitterLink={twitterLink}
                     facebookLink={facebookLink}
                     pinterestLink={pinterestLink}
-                    handleSocialButtonSizeChange={handleSocialButtonSizeChange}
                     socialButtonSize={socialButtonSize}
                     youtubeLink={youtubeLink}
                     vimeoLink={vimeoLink}
@@ -689,7 +688,6 @@ const Editorpage = () => {
                     twitterLink={twitterLink}
                     facebookLink={facebookLink}
                     pinterestLink={pinterestLink}
-                    handleSocialButtonSizeChange={handleSocialButtonSizeChange}
                     socialButtonSize={socialButtonSize}
                     youtubeLink={youtubeLink}
                     vimeoLink={vimeoLink}
@@ -773,7 +771,6 @@ const Editorpage = () => {
                     twitterLink={twitterLink}
                     facebookLink={facebookLink}
                     pinterestLink={pinterestLink}
-                    handleSocialButtonSizeChange={handleSocialButtonSizeChange}
                     socialButtonSize={socialButtonSize}
                     youtubeLink={youtubeLink}
                     vimeoLink={vimeoLink}
@@ -855,7 +852,6 @@ const Editorpage = () => {
                     twitterLink={twitterLink}
                     facebookLink={facebookLink}
                     pinterestLink={pinterestLink}
-                    handleSocialButtonSizeChange={handleSocialButtonSizeChange}
                     socialButtonSize={socialButtonSize}
                     youtubeLink={youtubeLink}
                     vimeoLink={vimeoLink}
@@ -937,7 +933,6 @@ const Editorpage = () => {
                     twitterLink={twitterLink}
                     facebookLink={facebookLink}
                     pinterestLink={pinterestLink}
-                    handleSocialButtonSizeChange={handleSocialButtonSizeChange}
                     socialButtonSize={socialButtonSize}
                     youtubeLink={youtubeLink}
                     vimeoLink={vimeoLink}
@@ -1021,7 +1016,6 @@ const Editorpage = () => {
                     twitterLink={twitterLink}
                     facebookLink={facebookLink}
                     pinterestLink={pinterestLink}
-                    handleSocialButtonSizeChange={handleSocialButtonSizeChange}
                     socialButtonSize={socialButtonSize}
                     youtubeLink={youtubeLink}
                     vimeoLink={vimeoLink}
@@ -1104,7 +1098,6 @@ const Editorpage = () => {
                     twitterLink={twitterLink}
                     facebookLink={facebookLink}
                     pinterestLink={pinterestLink}
-                    handleSocialButtonSizeChange={handleSocialButtonSizeChange}
                     socialButtonSize={socialButtonSize}
                     youtubeLink={youtubeLink}
                     vimeoLink={vimeoLink}

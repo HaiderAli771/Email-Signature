@@ -15,7 +15,7 @@ interface Props {
     phone: string;
     email: string;
     imageSize: number;
-    changeImg: string | null;
+    changeImg: string | ArrayBuffer | null;
     bannerImg: string | null;
     links: ILinks;
     displayText: string;
@@ -202,7 +202,7 @@ export default function Template4({
                     {changeImg && (
                         <Image
                             style={{ margin: '0 0 10px 0' }}
-                            src={changeImg}
+                            src={changeImg as string}
                             alt="Profile"
                             width={imageSize}
                             height={imageSize}

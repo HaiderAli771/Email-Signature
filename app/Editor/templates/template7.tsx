@@ -11,7 +11,7 @@ interface Props {
     phone: string;
     email: string;
     imageSize: number;
-    changeImg: string | null;
+    changeImg: string | ArrayBuffer | null;
     bannerImg?: string | null;
     links: ILinks;
     displayText: string;
@@ -177,7 +177,7 @@ export default function SignatureTemplate7({
                         {changeImg && (
                             <div style={{ margin: 'auto', textAlign: 'center', marginRight: '20px' }}>
                                 <Image
-                                    src={changeImg}
+                                    src={changeImg as string}
                                     alt="Profile"
                                     width={imageSize}
                                     height={imageSize}

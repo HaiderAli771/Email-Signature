@@ -13,7 +13,7 @@ interface Props {
     phone: string;
     email: string;
     imageSize: number;
-    changeImg: string | null;
+    changeImg: string | ArrayBuffer | null;
     bannerImg: string | null;
     links: ILinks;
     displayText: string;
