@@ -1,9 +1,6 @@
 "use client"
 import Head from 'next/head';
-import { FaSignature, FaLock, FaUsers, FaFileAlt } from 'react-icons/fa';
 import Header from './Header/page'
-import Link from 'next/link';
-import Editor from './Editor/page'
 import Hero from './Hero/page'
 import Feature from './Feature/page'
 import TemplateSection from './Template-Section/page'
