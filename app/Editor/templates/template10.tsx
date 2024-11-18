@@ -173,7 +173,6 @@ export default function SignatureTemplate10({
                 <div style={{
                     display: 'flex',
                     maxWidth: '500px',
-                    fontFamily: 'Arial, sans-serif',
                     color: textColor,
 
                 }}>

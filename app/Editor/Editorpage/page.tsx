@@ -43,8 +43,7 @@ const Editorpage = () => {
     const [position, setPosition] = useState('Enter Your Position');
     const [email, setEmail] = useState('Enter Your Email');
     const [phoneNumber, setPhoneNumber] = useState('00000000000');
-    const [image, setImage] = useState<string | null>('/images.png');
-    const [inputValue, setInputValue] = useState('');
+    const [inputValue] = useState('');
     const [imageSize, setImageSize] = useState<number>(60);
     const [socialButtonSize, setSocialButtonSize] = useState<number>(60);
     const [retailButtonSize, setRetailButtonSize] = useState<number>(60);
@@ -575,6 +574,7 @@ const Editorpage = () => {
                     disclaimerTextWidth={disclaimerTextWidth}
                     disclaimerTextSize={disclaimerTextSize}
                     disclaimerTextColor={disclaimerTextColor}
+                    disclaimerTextPadding={disclaimerTextPadding}
                 />;;
             case 'Template4':
                 return <SignatureTemplate4 name={name}
