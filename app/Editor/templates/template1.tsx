@@ -182,6 +182,7 @@ export default function SignatureTemplate1({
                 fontFamily: selectedFont,
                 fontSize: `${fontSize}px`,
                 maxWidth: '519px',
+                width: 'fit-content',
                 overflowX: 'auto',
                 overflowY: 'hidden',
                 // boxShadow: '1px 1px 1px',
@@ -190,8 +191,8 @@ export default function SignatureTemplate1({
 
             }} className='md:flex md:flex-col'>
                 <div
-                    className="xl:position-sticky position-absolute"
-                    style={{ width: 'fit-content' }}
+                    className="xl:position-sticky position-absolute md:max-w-[519px] max-w-[240px]"
+                    style={{}}
                 >
                     <p style={{ fontSize: `${signatureSize}px`, fontWeight: '600', margin: '0', paddingBottom: '5px', color: `${signatureColor}` }}>{signature}</p>
 

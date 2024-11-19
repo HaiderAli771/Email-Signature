@@ -170,8 +170,8 @@ export default function SignatureTemplate7({
     disclaimerTextPadding,
 }: Props) {
     return (
-        <>
-            <div ref={signatureRef} className='xl:sticky' style={{ maxWidth: '520px', fontFamily: selectedFont, backgroundColor: bgColor, padding: '20px', color: textColor, borderRadius: '10px', overflowX: 'auto', }}>
+        <div ref={signatureRef} className='xl:sticky' style={{ maxWidth: '520px', width: 'fit-content', fontFamily: selectedFont, backgroundColor: bgColor, padding: '20px', color: textColor, borderRadius: '10px', overflowX: 'auto', }}>
+            <div className='md:max-w-[520px] max-w-[240px]'>
                 <div style={{ display: 'flex' }}>
                     <div style={{ verticalAlign: 'middle', marginTop: 'auto', marginBottom: 'auto' }}>
                         {changeImg && (
@@ -764,6 +764,6 @@ export default function SignatureTemplate7({
                     </div>
                 </div>
             </div >
-        </>
+        </div>
     );
 }

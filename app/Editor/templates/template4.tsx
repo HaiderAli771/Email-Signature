@@ -195,7 +195,7 @@ export default function Template4({
 
             }}
         >
-            <div style={{}} className='md:flex md:flex-col'>
+            <div className='md:flex md:flex-col md:max-w-[519px] max-w-[240px]'>
                 <p style={{ fontSize: `${signatureSize}px`, fontWeight: '600', marginBottom: '10px', color: `${signatureColor}` }}>{signature}</p>
 
                 <div style={{ display: 'inline-table', marginTop: 'auto', marginBottom: 'auto', paddingRight: '20px' }}>

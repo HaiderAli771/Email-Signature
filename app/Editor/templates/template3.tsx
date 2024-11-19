@@ -181,11 +181,12 @@ export default function template3({
                 overflowX: 'auto',
                 overflowY: 'hidden',
                 // boxShadow: '1px 1px 1px',
+                width: 'fit-content',
                 padding: '24px',
                 // position: 'sticky',
 
             }} className='md:flex md:flex-col'>
-                <div style={{}}>
+                <div className='md:max-w-[519px] max-w-[240px]'>
                     <p style={{ fontSize: `${signatureSize}px`, fontWeight: '600', margin: '0', color: `${signatureColor}` }}>{signature}</p>
                     <div style={{ display: 'inline-table', alignSelf: 'center', marginTop: 'auto', marginBottom: 'auto', paddingRight: '20px' }}>
                         {changeImg && (

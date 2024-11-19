@@ -192,7 +192,7 @@ export default function SignatureTemplate5({
 
                 }}
             >
-                <div style={{}} className='md:flex md:flex-col md:justify-center md:items-center'>
+                <div className='md:flex md:flex-col md:justify-center md:items-center md:max-w-[519px] max-w-[240px]'>
                     <p style={{ fontSize: `${signatureSize}px`, fontWeight: '600', margin: '0', color: `${signatureColor}`, textAlign: 'center', paddingLeft: '16px', }}>{signature}</p>
 
                     <div style={{ alignItems: 'center', margin: 'auto' }}>

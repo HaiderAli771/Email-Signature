@@ -171,8 +171,8 @@ export default function SignatureTemplate9({
     disclaimerTextColor,
 }: Props) {
     return (
-        <>
-            <div ref={signatureRef} style={{ maxWidth: '520px', width: 'fit-content', fontFamily: selectedFont, backgroundColor: bgColor, overflowX: 'auto', overflowY: 'hidden', padding: '20px', color: textColor, borderRadius: '10px', }} className='max-w-[560px]'>
+        <div ref={signatureRef} style={{ maxWidth: '520px', fontFamily: selectedFont, backgroundColor: bgColor, overflowX: 'auto', overflowY: 'hidden', padding: '20px', color: textColor, borderRadius: '10px', }} className='max-w-[560px]'>
+            <div className='md:max-w-[520px] max-w-[240px]'>
                 <p style={{ fontSize: `${signatureSize}px`, fontWeight: '600', margin: '0', paddingBottom: '5px', color: `${signatureColor}` }}>{signature}</p>
                 <div>
                     <div style={{ verticalAlign: 'middle', paddingBottom: '10px' }}>
@@ -753,6 +753,6 @@ export default function SignatureTemplate9({
         }
     }
 `}</style>
-        </>
+        </div>
     );
 }

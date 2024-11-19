@@ -170,8 +170,8 @@ export default function SignatureTemplate6({
 }: Props) {
 
     return (
-        <>
-            <div ref={signatureRef} style={{ fontFamily: selectedFont, backgroundColor: bgColor, padding: '20px', color: textColor, borderRadius: '10px', maxWidth: '519px', position: 'sticky', width: "fit-content", overflowX: 'auto', }}>
+        <div ref={signatureRef} style={{ fontFamily: selectedFont, backgroundColor: bgColor, padding: '20px', color: textColor, borderRadius: '10px', maxWidth: '519px', position: 'sticky', width: "fit-content", overflowX: 'auto', }}>
+            <div className='md:max-w-[519px] max-w-[240px]'>
                 <div style={{ padding: '0', margin: '0' }}>
                     <div style={{ paddingLeft: '15px' }}>
                         <div>
@@ -717,6 +717,6 @@ export default function SignatureTemplate6({
                     </div>
                 </div>
             </div >
-        </>
+        </div>
     );
 }

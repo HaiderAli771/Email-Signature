@@ -171,7 +171,7 @@ export default function template2({
     return (
         <div ref={signatureRef} style={{ maxWidth: '545px', width: 'fit-content' }} className='md:flex md:flex-col md:justify-center md:items-center'>
             <div
-                className="xl:position-sticky"
+                className="xl:position-sticky md:max-w-[545px] max-w-[297px] "
                 style={{
                     // display: 'flex',
                     backgroundColor: bgColor,
