@@ -180,7 +180,6 @@ export default function template3({
                 overflowX: 'auto',
                 padding: '24px',
                 maxWidth: '519px',
-                width: 'fit-content',
                 position: 'sticky',
 
             }}>
