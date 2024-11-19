@@ -171,18 +171,20 @@ export default function template3({
 }: Props) {
     return (
         <>
-            <div ref={signatureRef} className=" p-6  md:overflow-hidden overflow-y-auto rounded-md" style={{
+            <div ref={signatureRef} style={{
+                // display: 'flex',
                 backgroundColor: bgColor,
                 color: textColor,
                 fontFamily: selectedFont,
                 fontSize: `${fontSize}px`,
-                borderRadius: '12px',
-                overflowX: 'auto',
-                padding: '24px',
                 maxWidth: '519px',
-                position: 'sticky',
+                overflowX: 'auto',
+                overflowY: 'hidden',
+                // boxShadow: '1px 1px 1px',
+                padding: '24px',
+                // position: 'sticky',
 
-            }}>
+            }} className='md:flex md:flex-col'>
                 <div style={{}}>
                     <p style={{ fontSize: `${signatureSize}px`, fontWeight: '600', margin: '0', color: `${signatureColor}` }}>{signature}</p>
                     <div style={{ display: 'inline-table', alignSelf: 'center', marginTop: 'auto', marginBottom: 'auto', paddingRight: '20px' }}>

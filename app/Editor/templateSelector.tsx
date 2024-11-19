@@ -220,10 +220,6 @@ const TemplateSelector = ({
                             meetingBorderRadius={20}
                             selectedOption={'asd'}
                             calenderLink='/'
-                            disclaimerText='Disclaimers are statements of information that help limit your legal liabilty for things such as errors and omissions, giving instructional guidance and sharing your personal opinions.'
-                            disclaimerTextColor='gray'
-                            disclaimerTextWidth={400}
-                            disclaimerTextSize={11}
                             linkedinLink='' amazonLink='' appStoreLink='' ebayLink='' instagramLink={''} patreonLink={''} facebookLink={''} youtubeLink={''} twitterLink={''} pinterestLink={''} vimeoLink={''} socialButtonSize={90} />
                     </div>
 
@@ -379,7 +375,7 @@ const TemplateSelector = ({
                     </div>
                     <div
                         onClick={() => handleTemplateSelection('Template7')}
-                        className={`cursor-pointer p-2 transition-all h-fit duration-300 rounded-md ${selectedTemplate === 'Template7' ? 'ring-4 ring-green-500' : 'ring-1 ring-gray-200'}`}
+                        className={`cursor-pointer p-2 transition-all h-fit duration-300 md:max-w-[540px] max-w-[254px] rounded-md ${selectedTemplate === 'Template7' ? 'ring-4 ring-green-500' : 'ring-1 ring-gray-200'}`}
                     >
                         <SignatureTemplate7
                             bannerLink=''
