@@ -26,10 +26,6 @@ const Header = () => {
           <Link href="#templates" className="text-gray-800 hover:text-blue-600 transition">Templates</Link>
           <Link href="#testimonials" className="text-gray-800 hover:text-blue-600 transition">Testimonials</Link>
         </nav>
-
-        <button className="hidden md:block px-6 py-2 bg-blue-600 text-white font-semibold rounded-md shadow-lg hover:bg-blue-700 transition">
-          Sign In
-        </button>
       </div>
 
       {isOpen && (
@@ -37,9 +33,6 @@ const Header = () => {
           <Link href="#features" className="block px-4 py-2 text-gray-800 hover:bg-blue-600 hover:text-white transition">Features</Link>
           <Link href="#templates" className="block px-4 py-2 text-gray-800 hover:bg-blue-600 hover:text-white transition">Templates</Link>
           <Link href="#testimonials" className="block px-4 py-2 text-gray-800 hover:bg-blue-600 hover:text-white transition">Testimonials</Link>
-          <button className="block w-full px-6 py-2 mt-2 bg-blue-600 text-white font-semibold rounded-md shadow-lg hover:bg-blue-700 transition">
-            Sign In
-          </button>
         </nav>
       )}
     </header>
