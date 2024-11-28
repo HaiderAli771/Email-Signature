@@ -758,7 +758,7 @@ export default function SignatureTemplate10({
                         <Link href={`https://www.${encodeURIComponent(calenderLink)}.com`} style={{ marginTop: 'auto', textDecoration: 'none', marginBottom: 'auto', marginLeft: ctaTextGap, color: calenderTextColor, fontSize: calenderTextSize, }}>
                             <p style={{ marginTop: 'auto', marginBottom: 'auto', marginLeft: ctaTextGap, color: ctaTextColor, fontSize: calenderTextSize, }}> {ctaText}</p>
                         </Link>
-                    </div>a
+                    </div>
                     <div style={{ marginTop: `${disclaimerTextPadding}px`, }}>
                         <p style={{ fontSize: disclaimerTextSize, color: disclaimerTextColor, width: disclaimerTextWidth, }}>{disclaimerText}</p>
                     </div>
