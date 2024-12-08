@@ -5,9 +5,11 @@ import Hero from './Hero/page'
 import Feature from './Feature/page'
 import TemplateSection from './Template-Section/page'
 import TestimonialSection from './Testimonial-Section/page'
-<head>
-  <meta name="google-site-verification" content="4zq3kiTLUKsY9zGoZ44txOmTpZqYYcd4TtbUZ--iXno" />
-</head>
+<html>
+  <head>
+    <meta name="google-site-verification" content="4zq3kiTLUKsY9zGoZ44txOmTpZqYYcd4TtbUZ--iXno" />
+  </head>
+</html>
 export default function Home() {
   return (
     <div className="min-h-screen bg-gray-50">
