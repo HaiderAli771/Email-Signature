@@ -10,11 +10,6 @@ const Header = () => {
     setIsOpen(!isOpen);
 
   };
-  <html>
-    <head>
-      <meta name="google-site-verification" content="4zq3kiTLUKsY9zGoZ44txOmTpZqYYcd4TtbUZ--iXno" />
-    </head>
-  </html>
   return (
     <header className="bg-white py-6 shadow-md">
       <div className="max-w-7xl mx-auto flex justify-between items-center px-6">
