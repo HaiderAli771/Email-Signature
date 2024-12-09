@@ -5,8 +5,8 @@ import "./globals.css";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "YourNewName Email Signature Generator", // Change "YourNewName" to your desired name
-  description: "Personalized Email Signature Generator for all your needs", // Update the description
+  title: "NextSig Email Signature Generator",
+  description: "Email Signature Generator",
 };
 
 export default function RootLayout({
