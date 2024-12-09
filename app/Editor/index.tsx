@@ -30,9 +30,9 @@ const index = (
 
       <div className="mt-4">
 
-        <label className="flex text-sm font-medium text-gray-700" >
+        <h1 className="flex text-sm font-medium text-gray-700" >
           {title}
-        </label>
+        </h1>
         <input
 
           className="mt-1 p-2 w-full border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500"
