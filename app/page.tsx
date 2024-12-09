@@ -10,7 +10,7 @@ export default function Home() {
     <div className="min-h-screen bg-gray-50">
       <Head>
         <title>Signatures</title>
-        <meta name="NextSig" content="Email Signature Generator" />
+        <meta name="NextSig Email Signature Generator" content="Email Signature Generator" />
       </Head>
 
       <Header />
