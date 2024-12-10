@@ -5,7 +5,7 @@ import "./globals.css";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "NextSig Email Signature Generator",
+  title: "Email Signature Generator",
   description: "Email Signature Generator",
 };
 
@@ -16,7 +16,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <title>NextSig Email Signature Generator</title>
+      <title>Email Signature Generator</title>
       <body className={inter.className}>{children}</body>
     </html>
   );
