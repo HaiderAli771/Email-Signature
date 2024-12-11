@@ -1,0 +1,9 @@
+# robots.txt for Email Signature Generator
+
+# Allow all user agents to crawl the entire site
+User-agent: *
+Disallow: /admin/
+Disallow: /login/
+
+# Sitemap location
+Sitemap: https://nextsig-e-signature-generator.netlify.app/sitemap.xml
