@@ -5,6 +5,7 @@ import Hero from './Hero/page'
 import Feature from './Feature/page'
 import TemplateSection from './Template-Section/page'
 import TestimonialSection from './Testimonial-Section/page'
+import Footer from './Footer/page'
 export default function Home() {
   return (
     <div className="min-h-screen bg-gray-50">
@@ -17,6 +18,8 @@ export default function Home() {
       <TemplateSection />
 
       <TestimonialSection />
+
+      <Footer />
     </div>
   );
 }

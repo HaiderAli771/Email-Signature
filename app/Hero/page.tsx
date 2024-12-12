@@ -16,7 +16,7 @@ const page = () => {
         <div className="relative w-full md:w-1/2  h-64 md:h-full pt-5 pb-4">
           <img
             src="/hero.jpg"
-            alt="Hero Background"
+            alt="email signature generator"
             className="w-full h-full object-cover rounded-lg shadow-lg"
           />
         </div>
