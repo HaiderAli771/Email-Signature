@@ -5,8 +5,8 @@ import "./globals.css";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Email Signature Generator by NextSig",
-  description: "Create professional and eye-catching email signatures with ease using our Email Signature Generator. It is Easy to use with more than 10 templates. It is free.",
+  title: "Free Email Signature Generator | 10+ Professional Templates by NextSig",
+  description: "Design professional email signatures with our free email signature generator. Choose from 10+ customizable templates for personal or business use.",
 };
 
 export default function RootLayout({

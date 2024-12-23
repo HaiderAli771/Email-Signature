@@ -7,7 +7,7 @@ const page = () => {
         <section id="templates" className="py-20 bg-gray-50">
             <div className="max-w-7xl mx-auto px-6">
                 <h2 className="text-5xl font-bold text-center mb-16 text-gray-900">
-                    Choose a <span className="text-blue-600">Template</span> That Fits Your Needs
+                    Choose from 10+ Templates to Suit Your Needs
                 </h2>
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
                     <div className="p-8 bg-white shadow-xl rounded-lg hover:shadow-2xl transition">

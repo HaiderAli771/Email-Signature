@@ -7,7 +7,7 @@ const page = () => {
             <section id="features" className="py-20 bg-white">
                 <div className="max-w-7xl mx-auto px-6">
                     <h2 className="text-5xl font-bold text-center mb-16 text-gray-900">
-                        Why Choose <span className="text-blue-600">Our Solution?</span>
+                        Why Choose NextSig for Your Email Signatures?
                     </h2>
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
                         <div className="p-8 bg-white shadow-xl rounded-lg hover:shadow-2xl transition">
